@@ -9,9 +9,11 @@
   "author": "Jonathan Ming",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@koa/router": "^8.0.8",
     "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-logger": "^3.2.1",
     "koa-respond": "^2.1.0",
-    "koa-router": "^8.0.8",
     "lodash": "^4.17.15"
   }
 }
