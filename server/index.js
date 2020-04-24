@@ -10,6 +10,9 @@ const { sit, stand } = require('./automateDiscord');
 const app = new Koa();
 const router = new Router();
 
+const API_KEY = process.env.SITCORD_API_KEY;
+const PORT = process.env.SITCORD_PORT || 12345;
+
 let discordConnected = false;
 
 router.get('/', (ctx) => ctx.ok('Pong!'));
@@ -53,5 +56,4 @@ app.use(respond());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const PORT = process.env.SITCORD_PORT || 12345;
-const server = app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+const server = app.listen(PORT, '0.0.0.0', () => console.log(`listening on http://0.0.0.0:${PORT}`));

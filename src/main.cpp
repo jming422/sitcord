@@ -76,11 +76,11 @@ void loop() {
   Serial.print(hi);
   Serial.println(F("°F"));
 
-  if (!sitting && hi - lastLastHI > 4) {
+  if (!sitting && hi - lastLastHI >= 1) {
     Serial.println("I (probably) sat down!");
     sitting = true;
     notifyServer(true);
-  } else if (sitting && lastLastHI - hi > 4) {
+  } else if (sitting && lastLastHI - hi >= 1) {
     Serial.println("I (probably) got up!");
     sitting = false;
     notifyServer(false);
