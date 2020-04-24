@@ -10,10 +10,13 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@koa/router": "^8.0.8",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
     "koa-logger": "^3.2.1",
     "koa-respond": "^2.1.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "puppeteer-core": "^3.0.1"
   }
 }
