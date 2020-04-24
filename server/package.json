@@ -4,6 +4,7 @@
   "description": "Run this on your computer to receive sit notifications from Sitcord!",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jonathan Ming",
@@ -15,7 +16,9 @@
     "koa": "^2.11.0",
     "koa-logger": "^3.2.1",
     "koa-respond": "^2.1.0",
-    "lodash": "^4.17.15",
     "puppeteer-core": "^3.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
