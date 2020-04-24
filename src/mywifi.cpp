@@ -26,17 +26,14 @@ int testServer() {
 }
 
 int notifyServer(bool sitting) {
-	String host = serverHost + "/";
+	String host = serverHost + sitting ? "/sit" : "/stand";
 	Serial.print("Trying to POST ");
 	Serial.println(host);
 
-    String postData = "{\"sitting\": ";
-    postData.concat(sitting ? "true" : "false");
-    postData.concat("}");
 	client.begin(host);
     client.addHeader("Content-Type", "application/json");
     client.addHeader("Authorization", "Bearer " + apikey);
-	int responseCode = client.POST(postData);
+	int responseCode = client.POST("");
     String response = client.getString();
 	client.end();
 

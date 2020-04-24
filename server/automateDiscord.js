@@ -36,7 +36,7 @@ async function doInDiscord(fn) {
 }
 
 async function sit() {
-  await doInDiscord(async (page) => {
+  return await doInDiscord(async (page) => {
     await page.waitForXPath(connectXPath, { timeout: 3000 });
     const [connectBtn] = page.$x(connectXPath);
     await connectBtn.click();
@@ -45,9 +45,13 @@ async function sit() {
 
 async function stand() {
   await doInDiscord(async (page) => {
-    await page.waitForXPath(disconnectXPath, { timeout: 3000 });
-    const [disconnectBtn] = page.$x(disconnectXPath);
-    await disconnectBtn.click();
+    try {
+      await page.waitForXPath(disconnectXPath, { timeout: 3000 });
+      const [disconnectBtn] = page.$x(disconnectXPath);
+      await disconnectBtn.click();
+    } catch (err) {
+      console.warn("Didn't detect the disconnect button, assuming we're already disconnected.");
+    }
   });
 }
 
