@@ -29,6 +29,7 @@
 // as the current DHT reading algorithm adjusts itself to work on faster procs.
 DHT dht(DHTPIN, DHTTYPE);
 
+float sensitivity = 1.5; // in deg Fahrenheit
 float lastLastHI = 200;
 float lastHI = 200;
 bool sitting = true;
@@ -76,11 +77,11 @@ void loop() {
   Serial.print(hi);
   Serial.println(F("°F"));
 
-  if (!sitting && hi - lastLastHI >= 1) {
+  if (!sitting && hi - lastLastHI >= sensitivity) {
     Serial.println("I (probably) sat down!");
     sitting = true;
     notifyServer(true);
-  } else if (sitting && lastLastHI - hi >= 1) {
+  } else if (sitting && lastLastHI - hi >= sensitivity) {
     Serial.println("I (probably) got up!");
     sitting = false;
     notifyServer(false);
