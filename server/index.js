@@ -13,13 +13,13 @@ const router = new Router();
 const API_KEY = process.env.SITCORD_API_KEY;
 const PORT = process.env.SITCORD_PORT || 12345;
 
-let discordConnected = false;
+let discordConnected = null;
 
 router.get('/', (ctx) => ctx.ok('Pong!'));
 
 router.post('/sit', async (ctx) => {
   try {
-    if (!discordConnected) {
+    if (discordConnected !== true) {
       console.log(`Hit /sit, not previously connected. Connecting...`);
       await sit();
       discordConnected = true;
@@ -36,7 +36,7 @@ router.post('/sit', async (ctx) => {
 
 router.post('/stand', async (ctx) => {
   try {
-    if (discordConnected) {
+    if (discordConnected !== false) {
       console.log(`Hit /stand, already connected. Disconnecting...`);
       await stand();
       discordConnected = false;

@@ -32,7 +32,7 @@ DHT dht(DHTPIN, DHTTYPE);
 float sensitivity = 1.5; // in deg Fahrenheit
 float lastLastHI = 200;
 float lastHI = 200;
-bool sitting = true;
+int sitting = -1; // 1 is sitting, 0 is standing, -1 is unintialized
 
 void setup() {
   Serial.begin(9600);
@@ -77,13 +77,13 @@ void loop() {
   Serial.print(hi);
   Serial.println(F("°F"));
 
-  if (!sitting && hi - lastLastHI >= sensitivity) {
+  if (sitting != 1 && hi - lastLastHI >= sensitivity) {
     Serial.println("I (probably) sat down!");
-    sitting = true;
+    sitting = 1;
     notifyServer(true);
-  } else if (sitting && lastLastHI - hi >= sensitivity) {
+  } else if (sitting != 0 && lastLastHI - hi >= sensitivity) {
     Serial.println("I (probably) got up!");
-    sitting = false;
+    sitting = 0;
     notifyServer(false);
   }
 
