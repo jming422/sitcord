@@ -28,8 +28,8 @@ A fun (and hopefully helpful) hackathon project to automate something I kept for
 ## Environment variables
 
 You can either set these in your environment like usual, or `dotenv` will load them from `server/.env` for you.
- - `DISCORD_DEBUG_PORT` - *Required.* This is the remote debugging port that Discord is listening on. See [Enabling Discord Debugging](#enabling-discord-debugging) below.
- - `DISCORD_SERVER_NAME` - *Required.* This is the name of the Discord server you want to connect/disconnect to.
+ - `DISCORD_DEBUG_PORT` - **Required.** This is the remote debugging port that Discord is listening on. See [Enabling Discord Debugging](#enabling-discord-debugging) below.
+ - `DISCORD_SERVER_NAME` - **Required.** This is the name of the Discord server you want to connect/disconnect to.
  - `DISCORD_CHANNEL_NAME` - Defaults to `General`. This is the name of the desired voice channel in the above server.
  - `SITCORD_PORT` - Defaults to `12345` (because why not!). This is the port you would like you local Sitcord server to listen on. Your ESP32 will connect to this port to send sit/stand statuses.
 
