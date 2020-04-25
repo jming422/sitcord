@@ -10,8 +10,7 @@ const { sit, stand } = require('./automateDiscord');
 const app = new Koa();
 const router = new Router();
 
-const API_KEY = process.env.SITCORD_API_KEY;
-const PORT = process.env.SITCORD_PORT || 12345;
+const PORT = parseInt(process.env.SITCORD_PORT, 10) || 12345;
 
 let discordConnected = null;
 

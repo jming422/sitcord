@@ -3,9 +3,12 @@ const puppeteer = require('puppeteer-core');
 
 const DISCORD_DEBUG_PORT = process.env.DISCORD_DEBUG_PORT;
 
-const focusServerXPath = '//a[@aria-label="Focus Dev"]';
+const DISCORD_CHANNEL_NAME = process.env.DISCORD_CHANNEL_NAME || 'General';
+const DISCORD_SERVER_NAME = process.env.DISCORD_SERVER_NAME;
 
-const connectXPath = '//div[@role="button" and contains(@aria-label, "General (voice channel)")]';
+const serverXPath = `//a[@aria-label="${DISCORD_SERVER_NAME}"]`;
+
+const connectXPath = `//div[@role="button" and contains(@aria-label, "${DISCORD_CHANNEL_NAME} (voice channel)")]`;
 const disconnectXPath = '//button[@aria-label="Disconnect"]';
 
 async function getWSEndpoint() {
@@ -26,9 +29,9 @@ async function doInDiscord(fn) {
   const pages = await browser.pages();
   const page = pages[0];
   try {
-    await page.waitForXPath(focusServerXPath, { timeout: 9000 });
-    const [focusServerBtn] = await page.$x(focusServerXPath);
-    await focusServerBtn.click();
+    await page.waitForXPath(serverXPath, { timeout: 9000 });
+    const [serverBtn] = await page.$x(serverXPath);
+    await serverBtn.click();
     await fn(page);
   } finally {
     browser.disconnect();

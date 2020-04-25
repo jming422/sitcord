@@ -11,11 +11,7 @@ int testServer() {
 	Serial.print("Trying to GET ");
 	Serial.println(host);
 
-    String token = "Bearer ";
-    token.concat(apikey);
-
     client.begin(host);
-    // client.addHeader("Authorization", token);
 	int responseCode = client.GET();
     String response = client.getString();
 	client.end();
@@ -34,12 +30,7 @@ int notifyServer(bool sitting) {
 	Serial.print("Trying to POST ");
 	Serial.println(host);
 
-    String token = "Bearer ";
-    token.concat(apikey);
-
 	client.begin(host);
-    // client.addHeader("Content-Type", "application/json");
-    // client.addHeader("Authorization", token);
 	int responseCode = client.POST("");
     String response = client.getString();
 	client.end();
