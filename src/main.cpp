@@ -29,7 +29,12 @@
 // as the current DHT reading algorithm adjusts itself to work on faster procs.
 DHT dht(DHTPIN, DHTTYPE);
 
-float sensitivity = 2; // in deg Fahrenheit. The lower this number, the more sensitive
+// Sensitivity in deg Fahrenheit. The lower this number, the more sensitive it will be.
+// Sensing getting up will be 50% less sensitive than this, since I've gotten more false
+// "getting up" events than false "sitting down" events, and the temperature shift while
+// getting up is often faster than sitting down.
+float sensitivity = 2;
+
 float lastLastHI = -1;
 float lastHI = -1;
 int sitting = -1; // 1 is sitting, 0 is standing, -1 is unintialized
@@ -83,7 +88,7 @@ void loop() {
     Serial.println("I (probably) sat down!");
     sitting = 1;
     notifyServer(true);
-  } else if (sitting != 0 && lastLastHI - hi >= sensitivity) {
+  } else if (sitting != 0 && lastLastHI - hi >= (sensitivity * 1.5)) {
     Serial.println("I (probably) got up!");
     sitting = 0;
     notifyServer(false);
