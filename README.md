@@ -42,14 +42,13 @@ You can either set these in your environment like usual, or `dotenv` will load t
 1. Open a terminal, navigate to the `server` directory, then run `npm install && npm start`
 1. Open this repo's as a project in PlatformIO
 1. Create a new file, `include/secrets.h`, and write this in it, putting in your Wi-Fi info:
-    -
-```
-#include <Arduino.h>
-
-const String serverHost = "http://YOUR_LAN_IP:12345"; // Replace 12345 if you set a custom SITCORD_PORT
-const char* ssid = "YOUR_WIFI_SSID_HERE";
-const char* password = "YOUR_WIFI_PASSWORD";
-```
+    - ```
+      #include <Arduino.h>
+      
+      const String serverHost = "http://YOUR_LAN_IP:12345"; // Replace 12345 if you set a custom SITCORD_PORT
+      const char* ssid = "YOUR_WIFI_SSID_HERE";
+      const char* password = "YOUR_WIFI_PASSWORD";
+      ```
 1. Connect your microcontroller to your laptop via USB
 1. Use PlatformIO's "Upload" button to write this project's code to your microcontroller
 1. All done!
