@@ -33,7 +33,7 @@ DHT dht(DHTPIN, DHTTYPE);
 // Sensing getting up will be 50% less sensitive than this, since I've gotten more false
 // "getting up" events than false "sitting down" events, and the temperature shift while
 // getting up is often faster than sitting down.
-float sensitivity = 2;
+float sensitivity = 1.5;
 
 float lastLastHI = -1;
 float lastHI = -1;

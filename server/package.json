@@ -11,15 +11,15 @@
   "author": "Jonathan Ming",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@koa/router": "^8.0.8",
-    "axios": "^0.19.2",
+    "@koa/router": "^9.4.0",
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
-    "koa": "^2.11.0",
+    "koa": "^2.13.0",
     "koa-logger": "^3.2.1",
     "koa-respond": "^2.1.0",
-    "puppeteer-core": "^3.0.1"
+    "puppeteer-core": "^5.2.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.4"
   }
 }

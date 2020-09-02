@@ -5,3 +5,5 @@ include/secrets.h
 
 node_modules
 .env
+
+.log
