@@ -5,6 +5,8 @@ Enter/leave a Discord channel automatically when you enter/leave your chair!
 
 A fun (and hopefully helpful) hackathon project to automate something I kept forgetting to do.
 
+This project is obsolete and probably not good to use. Check out https://github.com/reveel-it/sitcord if you're interested in the continuation of this idea.
+
 
 ## Required hardware
 
